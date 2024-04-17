@@ -42,5 +42,7 @@ public class File2 {
         System.out.printf("%s 파일 최종 수정시간:%s,%d\n", f3.getName(), new Date(f3.lastModified()), f3.lastModified());
         System.out.printf("%s 파일 삭제:%b\n",f3.getName(),f3.delete());
 
+
+
     }
 }
