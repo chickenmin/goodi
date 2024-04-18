@@ -40,6 +40,16 @@ class Student{
     public String getMajor() {
         return major;
     }
+
+    @Override
+    public String toString() {
+        return
+                "name='" + name + '\'' +
+                ", eng=" + eng +
+                ", math=" + math +
+                ", major='" + major + '\'' +
+                '}';
+    }
 }
 public class Lambda4 {
     static List<Student> list = Arrays.asList(
