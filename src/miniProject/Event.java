@@ -3,9 +3,16 @@ package miniProject;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
+import java.util.*;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+class dateRegular extends Exception{
+    dateRegular() {
+        super("0000/00/00 양식에 맞춰주세요.");
+    }
+}
 public class Event implements Serializable {
     private String name,memo, start,last;
 
@@ -42,5 +49,7 @@ public class Event implements Serializable {
     public String getName() {
         return name;
     } //이벤트이름
+
+
 }
 

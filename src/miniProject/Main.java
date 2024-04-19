@@ -21,6 +21,7 @@ public class Main {
                 System.out.println("종료합니다.");
                 return;
             }
+            map.put(id,null); // key : 아이디 / list:일정
             Store s = new Store(id); //아이디별 폴더 생성
             switch (choice) {
                 case 2 : m.calendarInquiry();
@@ -28,12 +29,11 @@ public class Main {
                 case 3 :
                     Event e = m.EventAdd();//event 객체 생성
                     list.add(e);
-                    map.put(e.getday(), list); //날짜 : 키값 , 이벤트가 객체
                     System.out.println(e.getday());
                     s.createF(e.getday(),e.getName()); //날짜폴더, 일정이름 파일 만들기
                     s.outToFile(e);
                     break;
-                case 4 :
+                case 4 : m.check(map,id);
                     break;
                 case 5 :
                     break;

@@ -5,6 +5,10 @@ import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class Menu {
     Scanner sc = new Scanner(System.in);
@@ -47,6 +51,34 @@ public class Menu {
         String memo = sc.nextLine();
         Event event = new Event(name, memo, start, last);
         return event;
+    }
+
+    public void check(Map<String, List<Event>> map,String id) {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("조회할 이벤트 날짜를 입력하시오");
+            String checkDay = sc.nextLine();
+            String [] str = checkDay.split("/");
+            for (String s : str) {
+                checkDay += s;
+            }
+            String pattern = "\\d{8}$";
+
+            Pattern p = Pattern.compile(pattern);
+            Matcher m = p.matcher(checkDay);
+            System.out.println(checkDay);
+            try {
+                if (m.matches()) {
+                    throw new dateRegular();
+                }
+                checkDay = checkDay.trim();
+                System.out.println(map.get(id).get(0));
+                return;
+
+            } catch (dateRegular e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
 
